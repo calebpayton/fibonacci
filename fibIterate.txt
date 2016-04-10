@@ -1,0 +1,37 @@
+/*
+ * Author: Caleb A. Payton
+ * Simple algorithm to compute fibonacci number.
+ * Takes in an integer, returns the fib number.
+ * Will compute up to fibIterate(92) due to overflow.
+ */
+
+package fibIterative;
+
+import java.util.Scanner;
+
+public class fibonacci {
+	public static void main(String[] args) {
+		
+		int n;
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.print("Enter fibonacci number: ");
+		n = scan.nextInt();
+		
+		System.out.print(fibIterate(n));
+	}
+	public static long fibIterate(int n) {
+		
+		long n2 = 0;
+		long n1 = 1;
+		long temp;
+		
+		for(int i=n; i>2; i--) {
+			temp = n2;
+			n2 = n1;
+			n1 = n1 + temp;
+		}
+		return n2+n1;
+	}
+}//will compute up to fibIterate(92)
